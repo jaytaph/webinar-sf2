@@ -1,0 +1,17 @@
+parameters:
+
+services:
+     noxlogic.blogtransform.service:
+         class: Noxlogic\BlogBundle\Service\BlogTransformService
+         arguments: [ @noxlogic.color.service ]
+
+     noxlogic.uppercase.service:
+         class: Noxlogic\BlogBundle\Service\UppercaseService
+
+     noxlogic.reverse.service:
+         class: Noxlogic\BlogBundle\Service\ReverseService
+
+     noxlogic.color.service:
+         class: Noxlogic\BlogBundle\Service\ColorService
+
+

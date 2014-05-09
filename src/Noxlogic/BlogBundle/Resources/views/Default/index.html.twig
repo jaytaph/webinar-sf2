@@ -1,0 +1,31 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+    {% if app.user %}
+        <a href="{{ url('fos_user_security_logout') }}">LOGOUT</a>
+    {% else %}
+        <a href="{{ url('fos_user_security_login') }}">LOGIN</a>
+    {% endif %}
+
+    {% for blog in blogs %}
+        <div class="blog">
+
+            <img src="{{ gravatar(blog.email) }}" />
+
+            <h3>{{ blog.title | raw }}</h3>
+            <div class="content">{{ blog.content | raw }}</div>
+        </div>
+
+        {% if is_granted('ROLE_ADMIN') %}
+        [ <a href="{{ url('noxlogic_blog_edit', { 'id' : blog.id }) }}">Edit</a> ]
+        {% endif %}
+
+        <hr>
+    {% endfor %}
+
+    {% if is_granted('ROLE_ADMIN') %}
+    [ <a href="{{ url('noxlogic_blog_new') }}">New blogpost</a> ]
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,11 @@
+noxlogic_blog_homepage:
+    pattern:  /
+    defaults: { _controller: NoxlogicBlogBundle:Default:index }
+
+noxlogic_blog_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: NoxlogicBlogBundle:Default:edit }
+
+noxlogic_blog_new:
+    pattern:  /new
+    defaults: { _controller: NoxlogicBlogBundle:Default:new }

@@ -1,0 +1,15 @@
+{% extends "::base.html.twig" %}
+
+{% form_theme formulier "form_table_layout.html.twig" %}
+
+{% block body %}
+
+    {% if blog.id %}
+        <h1>Edit blogpost {{ blog.title }}</h1>
+    {% else %}
+        <h1>Create new blogpost</h1>
+    {% endif %}
+
+    {{ form(formulier) }}
+
+{% endblock %}
